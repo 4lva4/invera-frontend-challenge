@@ -1,26 +1,26 @@
-export default async function Home() {
+'use client';
 
-  const res = await fetch('http://localhost:8000/statics', { cache: 'no-store' });
-  const stats = await res.json();
+import { useEffect } from 'react';
+import { useUserStore } from '@/store/useUserStore';
+import { Layout } from '@/components/layout/Layout';
+import { UserStats } from '@/components/organisms/UserStats';
+
+export default function DashboardPage() {
+  const fetchData = useUserStore((state) => state.fetchData);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   return (
-    <main className="p-10">
-      <h1 className="text-3xl font-bold text-blue-600 mb-6">Dashboard Invera</h1>
-      
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div className="p-4 border rounded shadow">
-          <p className="text-gray-500">Total Users</p>
-          <p className="text-2xl font-bold">{stats.totalUsers}</p>
-        </div>
-        <div className="p-4 border rounded shadow">
-          <p className="text-gray-500">New Users</p>
-          <p className="text-2xl font-bold">{stats.newUsers}</p>
-        </div>
+    <Layout>
+      <UserStats />
+      <div className="mt-8 bg-[#1e1e1e] border border-white/5 rounded-2xl p-20 text-center text-gray-500">
+        Statistics Chart Section
       </div>
-
-      <pre className="mt-10 bg-gray-100 p-4 rounded text-xs">
-        Debug Data: {JSON.stringify(stats, null, 2)}
-      </pre>
-    </main>
+      <div className="mt-8 bg-[#1e1e1e] border border-white/5 rounded-2xl p-20 text-center text-gray-500">
+        All Users Table Section
+      </div>
+    </Layout>
   );
 }
