@@ -1,31 +1,13 @@
-import { Statics, User } from "@/types";
-
-const API_URL = 'http://localhost:8000';
+import { Statics, User, UserTypesData } from "@/types";
+import { apiClient } from "@/utils/api-client";
 
 export const userService = {
-    
-  async getAllUsers(): Promise<User[]> {
-    const response = await fetch(`${API_URL}/users`, {
-      cache: 'no-store', 
-    });
-    
-    if (!response.ok) {
-      throw new Error('Error al obtener usuarios');
-    }
-    
-    return response.json();
-  },
+  getAllUsers: (signal?: AbortSignal) => 
+    apiClient<User[]>('/users', { signal }),
 
-  async getStatics(): Promise<Statics> {
-    const response = await fetch(`${API_URL}/statics`, {
-      next: { revalidate: 60 }, 
-    });
+  getStatics: (signal?: AbortSignal) => 
+    apiClient<Statics>('/statics', { signal }),
 
-    if (!response.ok) {
-      throw new Error('Error al obtener estadísticas');
-    }
-
-    return response.json();
-  }
-  
+  getUserTypes: (signal?: AbortSignal) => 
+    apiClient<UserTypesData>('/userTypes', { signal }),
 };

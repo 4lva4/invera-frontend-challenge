@@ -1,26 +1,39 @@
 'use client';
 
 import { useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import { useUserStore } from '@/store/useUserStore';
-import { Layout } from '@/components/layout/Layout';
 import { UserStats } from '@/components/organisms/UserStats';
+import { Layout } from '@/components/templates/Layout';
+
+const Chart = dynamic(
+  () => import('@/components/ui/chart').then((mod) => mod.Chart),
+  { 
+    ssr: false,
+    loading: () => <div className="h-[350px] w-full bg-[#1e1e1e] animate-pulse rounded-3xl" />
+  }
+);
 
 export default function DashboardPage() {
   const fetchData = useUserStore((state) => state.fetchData);
 
-  useEffect(() => {
-    fetchData();
-  }, [fetchData]);
+useEffect(() => {
+  const controller = new AbortController();
+  const currentUsers = useUserStore.getState().users;
+
+  if (currentUsers.length === 0) {
+    fetchData(controller.signal); 
+  }
+
+  return () => {
+    controller.abort();
+  };
+}, [fetchData]);
 
   return (
     <Layout>
       <UserStats />
-      <div className="mt-8 bg-[#1e1e1e] border border-white/5 rounded-2xl p-20 text-center text-gray-500">
-        Statistics Chart Section
-      </div>
-      <div className="mt-8 bg-[#1e1e1e] border border-white/5 rounded-2xl p-20 text-center text-gray-500">
-        All Users Table Section
-      </div>
+      <Chart />
     </Layout>
   );
 }

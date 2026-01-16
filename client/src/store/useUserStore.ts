@@ -1,45 +1,59 @@
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
+import { Statics, User, UserTypesData } from '@/types';
 import { userService } from '@/services/usersService';
-import { Statics, User } from '@/types';
 
 interface UserState {
   users: User[];
   statics: Statics | null;
+  userTypes: UserTypesData | null;
   isLoading: boolean;
   error: string | null;
-  fetchData: () => Promise<void>;
+  fetchData: (signal?: AbortSignal) => Promise<void>;
 }
 
 export const useUserStore = create<UserState>()(
   persist(
-    (set, get) => ({
+    (set) => ({
       users: [],
       statics: null,
+      userTypes: null,
       isLoading: false,
       error: null,
 
-      fetchData: async () => {
-        const { users } = get();
-        set({ isLoading: users.length === 0, error: null });
-
+      fetchData: async (signal?: AbortSignal) => {
+        set({ isLoading: true, error: null });
+        
         try {
-          const [usersData, staticsData] = await Promise.all([
-            userService.getAllUsers(),
-            userService.getStatics(),
+          const [usersData, staticsData, userTypesData] = await Promise.all([
+            userService.getAllUsers(signal),
+            userService.getStatics(signal),
+            userService.getUserTypes(signal)
           ]);
-          set({ users: usersData, statics: staticsData, isLoading: false });
-        } catch (err) {
-          set({ error: (err as Error).message, isLoading: false });
+
+          set({ 
+            users: usersData, 
+            statics: staticsData, 
+            userTypes: userTypesData, 
+            isLoading: false 
+          });
+        } catch (err: unknown) { 
+          if (err instanceof Error && err.name === 'AbortError') return;
+          
+          set({ 
+            error: err instanceof Error ? err.message : 'Error desconocido', 
+            isLoading: false 
+          });
         }
       },
     }),
     {
       name: 'invera-storage',
       storage: createJSONStorage(() => localStorage),
-      partialize: (state) => ({ 
-        users: state.users, 
-        statics: state.statics 
+      partialize: (state) => ({
+        users: state.users,
+        statics: state.statics,
+        userTypes: state.userTypes
       }),
     }
   )
