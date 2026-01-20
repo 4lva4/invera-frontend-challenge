@@ -1,63 +1,14 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "John Dowi",
-      "email": "john@example.com",
-      "phone": "(123) 456-7890",
-      "location": "United States",
-      "company": "Example Inc.",
-      "status": "Online",
-      "category": "New",
-      "type": "Direct"
-    },
-    {
-      "id": 4,
-      "name": "Graham Hillsk",
-      "email": "graham@twitter.com",
-      "phone": "(540) 827-3880",
-      "location": "India",
-      "company": "Twitter",
-      "status": "Online",
-      "category": "Top",
-      "type": "Social"
-    },
-    {
-      "id": 11,
-      "name": "Miguel Sánchez",
-      "email": "miguel@apple.com",
-      "phone": "(512) 555-1234",
-      "location": "Spain",
-      "company": "Apple",
-      "status": "Online"
-    },
-    {
-      "id": 12,
-      "name": "Emily Johnson",
-      "email": "emily@microsoft.com",
-      "phone": "(206) 555-9876",
-      "location": "United States",
-      "company": "Microsoft",
-      "status": "Offline"
-    },
-    {
-      "id": 13,
-      "name": "Lucas Weber",
-      "email": "lucas@tesla.com",
-      "phone": "(650) 555-4321",
-      "location": "Germany",
-      "company": "Tesla",
-      "status": "Online"
-    },
-    {
       "id": 14,
-      "name": "Yuki Tanaka",
+      "name": "Yuki Tanakaa",
       "email": "yuki@sony.com",
       "phone": "(813) 555-8765",
       "location": "Japan",
       "company": "Sony",
       "status": "Offline",
-      "category": "Top",
+      "category": "New",
       "type": "Social"
     },
     {
@@ -406,17 +357,6 @@
       "id": 53
     },
     {
-      "name": "WEFWER",
-      "email": "ERGER@GWEI.COM",
-      "company": "GERF",
-      "phone": "234346435",
-      "status": "Online",
-      "category": "New",
-      "type": "Direct",
-      "location": "Argentina",
-      "id": 54
-    },
-    {
       "name": "Dorie Rawson",
       "email": "doriraw@spotify.com",
       "phone": "34560934",
@@ -437,56 +377,12 @@
       "category": "New",
       "type": "Direct",
       "id": 60
-    },
-    {
-      "name": "Walter Rowalk",
-      "email": "walterro@aramco.com",
-      "phone": "(966) 8407105",
-      "company": "Aramco",
-      "location": "Argelia",
-      "status": "Online",
-      "category": "New",
-      "type": "Direct",
-      "id": 61
-    },
-    {
-      "name": "Walter Rowalk",
-      "email": "walterro@aramco.com",
-      "phone": "(966) 8407105",
-      "company": "Aramco",
-      "location": "Argelia",
-      "status": "Online",
-      "category": "New",
-      "type": "Direct",
-      "id": 62
-    },
-    {
-      "name": "Walter Rowalk",
-      "email": "walterro@aramco.com",
-      "phone": "(966) 840-7105",
-      "company": "Aramco",
-      "location": "Argelia",
-      "status": "Online",
-      "category": "New",
-      "type": "Direct",
-      "id": 63
-    },
-    {
-      "name": "Walter Rowalk",
-      "email": "walterro@aramco.com",
-      "phone": "(966) 8407105",
-      "company": "Aramco",
-      "location": "Argelia",
-      "status": "Online",
-      "category": "New",
-      "type": "Direct",
-      "id": 64
     }
   ],
   "statics": {
-    "totalUsers": 50,
-    "newUsers": 27,
-    "topUsers": 31,
+    "totalUsers": 40,
+    "newUsers": 35,
+    "topUsers": 26,
     "otherUsers": 10
   },
   "userTypes": {

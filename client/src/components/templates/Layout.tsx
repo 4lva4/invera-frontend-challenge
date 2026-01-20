@@ -28,6 +28,7 @@ export const Layout = ({ children }: Props) => {
           isOpen={isAddModalOpen} 
           onOpenChange={setIsAddModalOpen} 
           userToEdit={null} 
+          isEditing={false}
         />
       </header>
 

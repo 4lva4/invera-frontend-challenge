@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useCallback } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import { v4 as uuidv4 } from "uuid";
 import { useUserStore } from "@/store/useUserStore";
 import { type User } from "@/types";
 import {
@@ -32,18 +33,19 @@ interface AddUserModalProps {
   isOpen: boolean;
   onOpenChange: (open: boolean) => void;
   userToEdit?: User | null;
+  isEditing?: boolean;
 }
 
 export const AddUserModal = ({
   isOpen,
   onOpenChange,
   userToEdit,
+  isEditing = false,
 }: AddUserModalProps) => {
   const nameInputRef = useRef<HTMLInputElement>(null);
   const wasOpenRef = useRef(false);
   const { addUser, updateUser, isTableLoading } = useUserStore();
-  const [isEditing, setIsEditing] = React.useState(userToEdit ? true : false);
-
+  
   const initialValues = useMemo(
     () => ({
       name: "",
@@ -82,15 +84,14 @@ export const AddUserModal = ({
   useEffect(() => {
     if (isOpen && !wasOpenRef.current) {
       reset(userToEdit ? userToEdit : initialValues);
-      if (userToEdit && nameInputRef.current) {
-        requestAnimationFrame(() => {
+      if (userToEdit) {
+        setTimeout(() => {
           if (nameInputRef.current) {
-            nameInputRef.current.setSelectionRange(
-              nameInputRef.current.value.length,
-              nameInputRef.current.value.length,
-            );
+            const length = nameInputRef.current.value.length;
+            nameInputRef.current.focus();
+            nameInputRef.current.setSelectionRange(length, length);
           }
-        });
+        }, 0);
       }
     }
     wasOpenRef.current = isOpen;
@@ -98,14 +99,18 @@ export const AddUserModal = ({
 
   const onSubmit = async (data: UserFormData) => {
     try {
-      const formattedData = data as unknown as Partial<User>;
-
       if (userToEdit) {
+        const formattedData = data as unknown as Partial<User>;
         await updateUser(userToEdit.id, formattedData);
         onOpenChange(false);
         toast.success("User updated successfully");
       } else {
-        await addUser(formattedData as User);
+        const newUser = {
+          ...data,
+          id: uuidv4(),
+        } as User;
+        
+        await addUser(newUser);
         toast.success("User created successfully");
         onOpenChange(false);
         reset(initialValues);

@@ -128,6 +128,7 @@ export const UsersTable = () => {
           if (!open) setUserToEdit(null);
         }}
         userToEdit={userToEdit}
+        isEditing={true}
       />
     </div>
   );
