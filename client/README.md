@@ -32,7 +32,7 @@ npm --version
 ### 1. Cloná el repositorio
 
 ```bash
-git clone <tu-repo>
+git clone https://github.com/4lva4/invera-frontend-challenge.git
 cd invera-frontend-challenge/client
 ```
 
