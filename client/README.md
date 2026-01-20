@@ -179,17 +179,6 @@ npm run build
 npm start
 ```
 
-## Recursos Útiles
-
-Si querés aprender más sobre las tecnologías que usamos:
-
-- [Documentación de Next.js](https://nextjs.org/docs) - Para entender el framework
-- [React Docs](https://react.dev) - Todo sobre React
-- [Tailwind CSS](https://tailwindcss.com/docs) - Estilos con clases
-- [Radix UI](https://www.radix-ui.com/docs/primitives/overview/introduction) - Componentes accesibles
-- [Zustand](https://github.com/pmndrs/zustand) - Gestión de estado simple
-- [TypeScript](https://www.typescriptlang.org/docs/) - Para dominar los tipos
-
 ## Licencia
 
 Este proyecto está bajo licencia MIT. Siente se libre de usarlo como referencia o base para tus propios proyectos.
