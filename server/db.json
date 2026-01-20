@@ -2,93 +2,25 @@
   "users": [
     {
       "id": 1,
-      "name": "John Doe",
+      "name": "John Dowi",
       "email": "john@example.com",
       "phone": "(123) 456-7890",
       "location": "United States",
       "company": "Example Inc.",
-      "status": "Online"
-    },
-    {
-      "id": 2,
-      "name": "Jane Smith",
-      "email": "jane@example.com",
-      "phone": "(456) 789-0123",
-      "location": "Canada",
-      "company": "Example Inc.",
-      "status": "Offline"
-    },
-    {
-      "id": 3,
-      "name": "Matt Cannon",
-      "email": "matt@facebook.com",
-      "phone": "(319) 098-9899",
-      "location": "Australia",
-      "company": "Facebook",
-      "status": "Offline"
+      "status": "Online",
+      "category": "New",
+      "type": "Direct"
     },
     {
       "id": 4,
-      "name": "Graham Hills",
+      "name": "Graham Hillsk",
       "email": "graham@twitter.com",
       "phone": "(540) 827-3880",
       "location": "India",
       "company": "Twitter",
-      "status": "Online"
-    },
-    {
-      "id": 5,
-      "name": "Sandy Houston",
-      "email": "sandy@youtube.com",
-      "phone": "(440) 410-3848",
-      "location": "Canada",
-      "company": "YouTube",
-      "status": "Offline"
-    },
-    {
-      "id": 6,
-      "name": "Andy Smith",
-      "email": "andy@reddit.com",
-      "phone": "(424) 458-3268",
-      "location": "United States",
-      "company": "Reddit",
-      "status": "Online"
-    },
-    {
-      "id": 7,
-      "name": "Lilly Woods",
-      "email": "lilly@spotify.com",
-      "phone": "(361) 892-1819",
-      "location": "Australia",
-      "company": "Spotify",
-      "status": "Offline"
-    },
-    {
-      "id": 8,
-      "name": "Patrick Meyer",
-      "email": "patrick@pinterest.com",
-      "phone": "(760) 882-5670",
-      "location": "United Kingdom",
-      "company": "Pinterest",
-      "status": "Online"
-    },
-    {
-      "id": 9,
-      "name": "Frances Willen",
-      "email": "frances@twitch.com",
-      "phone": "(236) 496-5864",
-      "location": "Canada",
-      "company": "Twitch",
-      "status": "Offline"
-    },
-    {
-      "id": 10,
-      "name": "Ernest Houston",
-      "email": "ernest@linkedin.com",
-      "phone": "(704) 339-8813",
-      "location": "India",
-      "company": "LinkedIn",
-      "status": "Offline"
+      "status": "Online",
+      "category": "Top",
+      "type": "Social"
     },
     {
       "id": 11,
@@ -124,7 +56,9 @@
       "phone": "(813) 555-8765",
       "location": "Japan",
       "company": "Sony",
-      "status": "Offline"
+      "status": "Offline",
+      "category": "Top",
+      "type": "Social"
     },
     {
       "id": 15,
@@ -133,7 +67,9 @@
       "phone": "(331) 555-2468",
       "location": "France",
       "company": "Airbnb",
-      "status": "Online"
+      "status": "Online",
+      "category": "Top",
+      "type": "Social"
     },
     {
       "id": 16,
@@ -142,7 +78,9 @@
       "phone": "(822) 555-1357",
       "location": "South Korea",
       "company": "Samsung",
-      "status": "Offline"
+      "status": "Offline",
+      "category": "Top",
+      "type": "Social"
     },
     {
       "id": 17,
@@ -151,7 +89,9 @@
       "phone": "(339) 555-8642",
       "location": "Italy",
       "company": "Adobe",
-      "status": "Online"
+      "status": "Online",
+      "category": "Top",
+      "type": "Social"
     },
     {
       "id": 18,
@@ -160,7 +100,9 @@
       "phone": "(912) 555-9753",
       "location": "India",
       "company": "Tata",
-      "status": "Offline"
+      "status": "Offline",
+      "category": "Top",
+      "type": "Social"
     },
     {
       "id": 19,
@@ -260,15 +202,6 @@
       "location": "United States",
       "company": "Slack",
       "status": "Online"
-    },
-    {
-      "id": 30,
-      "name": "Mohammed Al-Thani",
-      "email": "mohammed@qatar.com",
-      "phone": "(974) 555-8901",
-      "location": "Qatar",
-      "company": "Qatar Airways",
-      "status": "Offline"
     },
     {
       "id": 31,
@@ -449,12 +382,111 @@
       "location": "Egypt",
       "company": "Elsewedy",
       "status": "Offline"
+    },
+    {
+      "name": "Rebeca Johnes",
+      "email": "rebjohn@tata.com",
+      "company": "Tata",
+      "phone": "(912) 545-9275",
+      "status": "Online",
+      "category": "New",
+      "type": "Direct",
+      "location": "Argentina",
+      "id": 52
+    },
+    {
+      "name": "Abraham Lorian",
+      "email": "abrahamlor@aramco.com",
+      "company": "Aramco",
+      "phone": "(233) 246-43456",
+      "status": "Online",
+      "category": "New",
+      "type": "Direct",
+      "location": "Argentina",
+      "id": 53
+    },
+    {
+      "name": "WEFWER",
+      "email": "ERGER@GWEI.COM",
+      "company": "GERF",
+      "phone": "234346435",
+      "status": "Online",
+      "category": "New",
+      "type": "Direct",
+      "location": "Argentina",
+      "id": 54
+    },
+    {
+      "name": "Dorie Rawson",
+      "email": "doriraw@spotify.com",
+      "phone": "34560934",
+      "company": "Spotify",
+      "location": "Argentina",
+      "status": "Online",
+      "category": "Other",
+      "type": "Social",
+      "id": 59
+    },
+    {
+      "name": "Abraham Lorian",
+      "email": "abrahamlor@aramco.com",
+      "phone": "(966) 840-7105",
+      "company": "Aramco",
+      "location": "Argentina",
+      "status": "Online",
+      "category": "New",
+      "type": "Direct",
+      "id": 60
+    },
+    {
+      "name": "Walter Rowalk",
+      "email": "walterro@aramco.com",
+      "phone": "(966) 8407105",
+      "company": "Aramco",
+      "location": "Argelia",
+      "status": "Online",
+      "category": "New",
+      "type": "Direct",
+      "id": 61
+    },
+    {
+      "name": "Walter Rowalk",
+      "email": "walterro@aramco.com",
+      "phone": "(966) 8407105",
+      "company": "Aramco",
+      "location": "Argelia",
+      "status": "Online",
+      "category": "New",
+      "type": "Direct",
+      "id": 62
+    },
+    {
+      "name": "Walter Rowalk",
+      "email": "walterro@aramco.com",
+      "phone": "(966) 840-7105",
+      "company": "Aramco",
+      "location": "Argelia",
+      "status": "Online",
+      "category": "New",
+      "type": "Direct",
+      "id": 63
+    },
+    {
+      "name": "Walter Rowalk",
+      "email": "walterro@aramco.com",
+      "phone": "(966) 8407105",
+      "company": "Aramco",
+      "location": "Argelia",
+      "status": "Online",
+      "category": "New",
+      "type": "Direct",
+      "id": 64
     }
   ],
   "statics": {
     "totalUsers": 50,
-    "newUsers": 18,
-    "topUsers": 40,
+    "newUsers": 27,
+    "topUsers": 31,
     "otherUsers": 10
   },
   "userTypes": {

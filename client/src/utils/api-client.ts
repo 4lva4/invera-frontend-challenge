@@ -1,8 +1,8 @@
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export const apiClient = async <T>(
-  endpoint: string, 
-  options: RequestInit = {} 
+  endpoint: string,
+  options: RequestInit = {}
 ): Promise<T> => {
   const response = await fetch(`${BASE_URL}${endpoint}`, {
     ...options,
@@ -18,4 +18,17 @@ export const apiClient = async <T>(
   }
 
   return response.json();
+};
+
+export const apiClientFull = async (
+  endpoint: string,
+  options: RequestInit = {}
+): Promise<Response> => {
+  return fetch(`${BASE_URL}${endpoint}`, {
+    ...options,
+    headers: {
+      'Content-Type': 'application/json',
+      ...options.headers,
+    },
+  });
 };

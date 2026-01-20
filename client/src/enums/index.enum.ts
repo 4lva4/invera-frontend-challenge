@@ -4,8 +4,13 @@ export enum UserType {
   DIRECT = 'Direct'
 }
 
-export enum UserStatus {
+export enum UserCategory {
     NEW = 'New',
     TOP = 'Top',
     OTHER = 'Other'
+}
+
+export enum UserStatus {
+    ONLINE = 'Online',
+    OFFLINE = 'Offline'
 }

@@ -1,6 +1,16 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+body {
+  pointer-events: auto !important;
+  overflow: auto !important;
+  margin-right: 0px !important;
+}
+
+:focus-visible {
+  outline: none !important;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {

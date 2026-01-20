@@ -1,4 +1,4 @@
-import { UserStatus, UserType } from "@/enums/index.enum";
+import { UserCategory, UserStatus, UserType } from "@/enums/index.enum";
 
 export interface Statics {
   totalUsers: number;
@@ -12,8 +12,11 @@ export interface User {
   name: string;
   email: string;
   type?: UserType;
+  category: UserCategory;
   status: UserStatus;
-  date: string;
+  company: string;
+  location: string;
+  phone: string;
 }
 
 export interface UserDistribution {
@@ -25,4 +28,10 @@ export interface UserTypesData {
   totalUsers: number;
   distribution: UserDistribution[];
 }
+
+export interface SortConfig {
+  key: string;
+  order: 'asc' | 'desc';
+}
+export { UserStatus, UserType, UserCategory };
 

@@ -1,22 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Toaster } from "@/components/ui/sonner";
+import { Button } from "@/components/ui/button";
+import { AddUserModal } from '../molecules/AddUserModal';
+import { ModeToggle } from '../ui/ModeToggle';
 
 interface Props {
   children: React.ReactNode;
 }
 
 export const Layout = ({ children }: Props) => {
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+
   return (
-    <div className="min-h-screen bg-[#121212] text-white">
-      <header className="max-w-300 mx-auto pt-10 px-6 flex justify-between items-center">
-        <h1 className="text-2xl font-semibold">Users</h1>
-        <button className="bg-[#7c94ff] hover:bg-[#6b82e6] text-white px-6 py-2 rounded-lg text-sm font-medium transition-colors">
-          Add user
-        </button>
+    <div className="min-h-screen bg-[#e3e5e6] dark:bg-[#212121] text-neutral-900 dark:text-white font-sans selection:bg-indigo-500/30 transition-colors duration-300">
+      <header className="max-w-7xl mx-auto px-8 py-6 flex justify-between items-center border-b border-black/5 dark:border-white/5">
+        <h1 className="text-2xl font-bold tracking-tighter">Users</h1>
+        <div className="flex items-center gap-4">
+          <ModeToggle />
+          <Button
+            onClick={() => setIsAddModalOpen(true)}
+            className="bg-[#7B99FF] hover:bg-indigo-700 text-white px-9 py-0.5 font-semibold transition-all active:scale-95 shadow-sm cursor-pointer"
+          >
+            Add user
+          </Button>
+        </div>
+        <AddUserModal 
+          isOpen={isAddModalOpen} 
+          onOpenChange={setIsAddModalOpen} 
+          userToEdit={null} 
+        />
       </header>
-      
-      <main className="max-w-300 mx-auto p-6 space-y-8">
+
+      <main className="max-w-7xl mx-auto p-8 space-y-8">
         {children}
       </main>
+      <Toaster position="bottom-right" closeButton richColors />
     </div>
   );
 };

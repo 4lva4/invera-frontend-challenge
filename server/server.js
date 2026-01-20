@@ -8,7 +8,6 @@ const port = 8000;
 server.use(middlewares);
 server.use(jsonServer.bodyParser);
 
-// Middleware personalizado para CORS
 server.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
